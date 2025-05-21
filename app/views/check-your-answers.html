@@ -1,0 +1,438 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before sending your application
+      </h1>
+
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds-from-desktop" action>
+
+              <form class="form" action="/application-submitted" method="post">
+
+                  <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+                  <h2 class="govuk-heading-m">Personal details</h2>
+
+                  {{
+ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "What do you want to do"
+            },
+            value: {
+              text: data['what-do-you-want-to-do']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/what-do-you-want-to-do",
+                  text: "Change",
+                  visuallyHiddenText: "What do you want to do"
+                }
+              ]
+            }
+          },
+        {
+            key: {
+              text: "Full name"
+            },
+            value: {
+              text: data['full-name']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/full-name",
+                  text: "Change",
+                  visuallyHiddenText: "Enter your Full name"
+                }
+              ]
+            }
+          },
+        {
+           key: {
+             text: "Date of birth"
+            },
+           value: {
+           text: data['date-of-birth-day'] + ' ' + data['date-of-birth-month'] + ' ' + data['date-of-birth-year']
+           },
+           actions: {
+            items: [
+               {
+                 href: "/date-of-birth",
+                 text: "Change",
+                 visuallyHiddenText: "Date of birth"
+                }
+            ]
+           }
+          },
+        {
+            key: {
+             text: "Gender"
+            },
+           value: {
+           text: data['gender']
+           },
+           actions: {
+            items: [
+               {
+                 href: "/gender",
+                 text: "Change",
+                 visuallyHiddenText: "Select your gender"
+                }
+            ]
+           }
+          },
+        {
+            key: {
+             text: "Postcode"
+            },
+           value: {
+           text: data['postcode']
+           },
+           actions: {
+            items: [
+               {
+                 href: "/postcode",
+                 text: "Change",
+                 visuallyHiddenText: "Search for your postcode"
+                }
+            ]
+           }
+          },
+        {
+            key: {
+             text: "Address"
+            },
+           value: {
+           text: data['address']
+           },
+           actions: {
+            items: [
+               {
+                 href: "/address",
+                 text: "Change",
+                 visuallyHiddenText: "Select your address"
+                }
+            ]
+           }
+          },
+            {
+            key: {
+             text: "Email address"
+            },
+           value: {
+           text: data['email-address']
+           },
+           actions: {
+            items: [
+               {
+                 href: "/email-address",
+                 text: "Change",
+                 visuallyHiddenText: "Enter your email address"
+                }
+            ]
+           }
+          }
+        ]
+      })
+                  }}
+
+                  <h2 class="govuk-heading-m">Application details</h2>
+                  {{
+ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "Employer"
+            },
+            value: {
+              text: data['employer']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/employer",
+                  text: "Change",
+                  visuallyHiddenText: "Find your employer"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "National Insurance Number"
+            },
+            value: {
+              text: data['national-insurance-number']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/national-insurance-number",
+                  text: "Change",
+                  visuallyHiddenText: "Enter your National Insurance Number"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Date you began working at Example Ltd"
+            },
+            value: {
+            text: data['date-began-working-day'] + ' ' + data['date-began-working-month'] + ' ' + data['date-began-working-year']
+           },
+            actions: {
+              items: [
+                {
+                  href: "/date-began-working",
+                  text: "Change",
+                  visuallyHiddenText: "Enter the date you began working for Example Ltd"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Type of wages owed"
+            },
+            value: {
+              text: data['type-wages-owed']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/type-wages-owed",
+                  text: "Change",
+                  visuallyHiddenText: "What type of wages are you owed?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Date you became redundant"
+            },
+            value: {
+              text: data['date-redundancy-day'] + ' ' + data['date-redundancy-month'] + ' ' + data['date-redundancy-year']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/date-redundancy",
+                  text: "Change",
+                  visuallyHiddenText: "What type of wages are you owed?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Dates you worked but did not get paid for"
+            },
+            value: {
+              text: data['dates-not-paid-for-day'] + ' ' + data['date-redundancy-month'] + ' ' + data['date-redundancy-year']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/dates-not-paid-for",
+                  text: "Change",
+                  visuallyHiddenText: "What type of wages are you owed?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Days worked outside normal shift pattern"
+            },
+            value: {
+              text: data['extra-days']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/extra-days",
+                  text: "Change",
+                  visuallyHiddenText: "What type of wages are you owed?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Net amount you're owed"
+            },
+            value: {
+                  text: '£' + data['net-amount-owed']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/net-amount-owed",
+                  text: "Change",
+                  visuallyHiddenText: "What is the net amount you are owed?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Gross amount you're owed"
+            },
+            value: {
+                  text: '£' + data['gross-amount-owed']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/gross-amount-owed",
+                  text: "Change",
+                  visuallyHiddenText: "What is the gross amount you are owed?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Attachment of earnings in place"
+            },
+            value: {
+                  text: data['attachment-of-earnings']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/attachment-of-earnings",
+                  text: "Change",
+                  visuallyHiddenText: "Do you have an attachment of earnings in place?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Attachment of earnings you have"
+            },
+            value: {
+                  text: data['attachment-type']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/attachment-type",
+                  text: "Change",
+                  visuallyHiddenText: "What is the attachment of earnings you have?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Holidays entitled to each year"
+            },
+            value: {
+                  text: data['holidays-entitled-to']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/holidays-entitled-to",
+                  text: "Change",
+                  visuallyHiddenText: "How many holidays were you entitled to each year?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Holidays taken each year"
+            },
+            value: {
+                  text: data['holidays-taken']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/holidays-taken",
+                  text: "Change",
+                  visuallyHiddenText: "How many holidays did you take in the last year?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Bank details"
+            },
+            value: {
+                  text: data['sort-code'] + ' ' + data['bank-account-number']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/holidays-taken",
+                  text: "Change",
+                  visuallyHiddenText: "How many holidays did you take in the last year?"
+                }
+              ]
+            }
+          },
+                  {
+            key: {
+              text: "Director"
+            },
+            value: {
+                  text: data['director']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/director",
+                  text: "Change",
+                  visuallyHiddenText: "Are you a director of the company?"
+                }
+              ]
+            }
+          }
+                  ]
+                  })
+                  }}
+                  <h2 class="govuk-heading-m">
+                      Now send your application
+                  </h2>
+                  <p>
+                      By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
+                  </p>
+                  <form action="/confirmation" method="post" novalidate>
+                      {{
+ govukButton({
+          text: "Accept and send"
+        })
+                      }}
+
+                  </form>
+
+</div>
+      </div>
+{% endblock %}

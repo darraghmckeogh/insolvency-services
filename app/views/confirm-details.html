@@ -1,0 +1,166 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block beforeContent %}
+{{
+ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  })
+}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop" action>
+
+        <form class="form" action="/employer" method="post">
+
+            <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
+
+            <h2 class="govuk-heading-m">Personal details</h2>
+
+            {{
+ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9",
+        rows: [
+          {
+            key: {
+              text: "What do you want to do"
+            },
+            value: {
+              text: data['what-do-you-want-to-do']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/what-do-you-want-to-do",
+                  text: "Change",
+                  visuallyHiddenText: "What do you want to do"
+                }
+              ]
+            }
+          },
+        {
+            key: {
+              text: "Full name"
+            },
+            value: {
+              text: data['full-name']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/full-name",
+                  text: "Change",
+                  visuallyHiddenText: "Enter your Full name"
+                }
+              ]
+            }
+          },
+        {
+           key: {
+             text: "Date of birth"
+            },
+           value: {
+           text: data['date-of-birth-day'] + ' ' + data['date-of-birth-month'] + ' ' + data['date-of-birth-year']
+           },
+           actions: {
+            items: [
+               {
+                 href: "/date-of-birth",
+                 text: "Change",
+                 visuallyHiddenText: "Date of birth"
+                }
+            ]
+           }
+          },
+        {
+            key: {
+             text: "Gender"
+            },
+           value: {
+           text: data['gender']
+           },
+           actions: {
+            items: [
+               {
+                 href: "/gender",
+                 text: "Change",
+                 visuallyHiddenText: "Select your gender"
+                }
+            ]
+           }
+          },
+        {
+            key: {
+             text: "Postcode"
+            },
+           value: {
+           text: data['postcode']
+           },
+           actions: {
+            items: [
+               {
+                 href: "/postcode",
+                 text: "Change",
+                 visuallyHiddenText: "Search for your postcode"
+                }
+            ]
+           }
+          },
+        {
+            key: {
+             text: "Address"
+            },
+           value: {
+           text: data['address']
+           },
+           actions: {
+            items: [
+               {
+                 href: "/address",
+                 text: "Change",
+                 visuallyHiddenText: "Select your address"
+                }
+            ]
+           }
+          },
+            {
+            key: {
+             text: "Email address"
+            },
+           value: {
+           text: data['email-address']
+           },
+           actions: {
+            items: [
+               {
+                 href: "/email-address",
+                 text: "Change",
+                 visuallyHiddenText: "Enter your email address"
+                }
+            ]
+           }
+          }
+        ]
+      })
+            }}
+
+            {{
+ govukButton({
+          text: "Continue"
+        })
+            }}
+        </form>
+
+    </div>
+</div>
+{% endblock %}

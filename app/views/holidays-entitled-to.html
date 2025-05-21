@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/holidays-taken" method="post">
+            {{
+ govukInput({
+  label: {
+    text: "How many holidays were you entitled to each year?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+    classes: "govuk-input--width-10",
+    id: "holidays-entitled-to",
+    name: "holidays-entitled-to",
+    value: data['holidays-entitled-to']
+})
+            }}
+        {{ govukButton({
+          text: "Continue"
+        })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

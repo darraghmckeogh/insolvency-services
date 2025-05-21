@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/type-wages-owed" method="post">
+
+            {{
+ govukDateInput({
+  id: "date-began-working",
+  namePrefix: "date-began-working",
+  fieldset: {
+    legend: {
+      text: "Enter the date you started working for Example Ltd",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+              value: {
+            day: data['date-began-working-day'],
+            month: data['date-began-working-month'],
+            year: data['date-began-working-year']}
+})
+            }}
+
+            {{
+ govukButton({
+          text: "Continue"
+        })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

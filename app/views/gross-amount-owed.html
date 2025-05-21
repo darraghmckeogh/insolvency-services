@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/attachment-of-earnings" method="post">
+            {{
+ govukInput({
+  label: {
+    text: "If your employer sent you a payslip but did not pay you, what is the gross amount you're owed?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+    classes: "govuk-input--width-10",
+    id: "gross-amount-owed",
+    name: "gross-amount-owed",
+    value: data['gross-amount-owed'],
+    prefix: {
+            text: "£"
+            }
+})
+            }}
+
+            {{
+ govukButton({
+          text: "Continue"
+        })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

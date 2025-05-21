@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{
+ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+})
+}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/full-name" method="post">
+
+            {{
+   govukRadios({
+  name: "what-do-you-want-to-do",
+  value: data['what-do-you-want-to-do'],
+  fieldset: {
+    legend: {
+      text: "What do you want to do?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "Start a new claim",
+      text: "Start a new claim"
+    },
+    {
+      value: "Continue an application",
+      text: "Continue an application"
+    },
+    {
+      value: "Amend an application",
+      text: "Amend an application"
+    },
+    {
+      value: "Provide Directors information",
+      text: "Provide Directors information"
+    },
+    {
+      value: "Apply for pensions contributions",
+      text: "Apply for pensions contributions"
+    }
+  ]
+})
+            }}
+
+            {{
+ govukButton({
+          text: "Continue"
+        })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

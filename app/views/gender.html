@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{
+ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+})
+}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/postcode" method="post">
+            {{
+ govukRadios({
+  name: "gender",
+    value: data['gender'],
+  fieldset: {
+    legend: {
+      text: "Select your gender",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "Male",
+      text: "Male"
+    },
+    {
+      value: "Female",
+      text: "Female"
+    }
+  ]
+})
+            }}
+
+
+            {{
+ govukButton({
+          text: "Continue"
+        })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

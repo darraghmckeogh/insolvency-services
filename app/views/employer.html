@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/national-insurance-number" method="post">
+
+            {{
+ govukInput({
+  label: {
+    text: "Find your employer",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  },
+    hint: {
+            text: "Case reference number"
+            },
+    classes: "govuk-input--width-20",
+    id: "employer",
+    name: "employer",
+    value: data['employer']
+})
+            }}
+
+            {{
+ govukButton({
+          text: "Continue"
+        })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

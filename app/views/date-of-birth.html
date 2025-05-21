@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          <form class="form" action="/gender" method="post">
+              {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+              {{
+ govukDateInput({
+  id: "date-of-birth",
+  namePrefix: "date-of-birth",
+  fieldset: {
+    legend: {
+      text: "Enter your date of birth",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2007"
+  },
+              value: {
+            day: data['date-of-birth-day'],
+            month: data['date-of-birth-month'],
+            year: data['date-of-birth-year']}
+})
+             }}
+              {{
+ govukButton({
+          text: "Continue"
+        })
+              }}
+
+          </form>
+
+              </div>
+          </div>
+
+{% endblock %}

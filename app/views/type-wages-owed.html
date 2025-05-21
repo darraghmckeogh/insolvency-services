@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/date-redundancy" method="post">
+
+            {{
+ govukCheckboxes({
+  name: "type-wages-owed",
+  value: data['type-wages-owed'],
+  fieldset: {
+    legend: {
+      text: "What type of wages are you owed?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "Wages 1",
+      text: "Wages 1"
+    },
+    {
+      value: "Wages 2",
+      text: "Wages 2"
+    }
+  ]
+})
+            }}
+            {{
+ govukButton({
+          text: "Continue"
+        })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/net-amount-owed" method="post">
+            {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+            {{
+ govukTextarea({
+  name: "extra-days",
+  id: "extra-days",
+  label: {
+    text: "Within these dates, did you work any days that were not part of your normal shift pattern?",
+    classes: "govuk-label--l",
+    isPageHeading: true
+  }
+})
+            }}
+            {{
+ govukButton({
+          text: "Continue"
+        })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

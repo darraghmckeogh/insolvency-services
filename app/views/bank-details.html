@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/director" method="post">
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+            {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+            {% call govukFieldset({
+            legend: {
+            text: "Enter your bank details to get paid",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+            }
+            }) %}
+
+            {{
+ govukInput({
+    label: {
+      text: "Sort code"
+    },
+    classes: "govuk-input--width-10",
+    id: "sort-code",
+    name: "sort-code",
+    value: data['sort-code']
+  })
+            }}
+
+            {{
+ govukInput({
+    label: {
+    text: "Bank account number"
+    },
+    classes: "govuk-input--width-10",
+    id: "bank-account-number",
+    name: "bank-account-number",
+    value: data['bank-account-number']
+  })
+            }}
+
+
+
+
+            {% endcall %}
+            {{
+ govukButton({
+          text: "Continue"
+        })
+            }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
