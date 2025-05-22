@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is an initial exploration into how existing user insights could inform a new amalgamated digital insolvency service.'
+}) }}
 {{
  govukBackLink({
   text: "Back",
@@ -16,7 +22,7 @@
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <form class="form" action="/full-name" method="post">
+        <form class="form" action="/email-address" method="post">
 
             {{
    govukRadios({
@@ -37,18 +43,6 @@
     {
       value: "Continue an application",
       text: "Continue an application"
-    },
-    {
-      value: "Amend an application",
-      text: "Amend an application"
-    },
-    {
-      value: "Provide Directors information",
-      text: "Provide Directors information"
-    },
-    {
-      value: "Apply for pensions contributions",
-      text: "Apply for pensions contributions"
     }
   ]
 })

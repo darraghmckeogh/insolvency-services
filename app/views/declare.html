@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is an initial exploration into how existing user insights could inform a new amalgamated digital insolvency service.'
+}) }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        Submit
+      </h1>
+
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds-from-desktop" action>
+
+                  <p>
+                      By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
+                  </p>
+                  
+                  <form action="/application-submitted" method="post" novalidate>
+                      {{
+                        govukButton({
+                          text: "Accept and send"
+                        })
+                      }}
+
+                  </form>
+
+</div>
+      </div>
+{% endblock %}

@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Prototype"
+    },
+    html: 'This is an initial exploration into how existing user insights could inform a new amalgamated digital insolvency service.'
+  }) }}
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -15,7 +21,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" action="/confirm-details" method="post">
+        <form class="form" action="/security-code-answer" method="post">
 
             {{
  govukInput({

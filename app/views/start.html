@@ -5,12 +5,16 @@
 {% endblock %}
 
 {% block header %}
-  <!-- Blank header with no service name for the start page -->
   {{ govukHeader() }}
 {% endblock %}
 
 {% block beforeContent %}
-
+  {{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is an initial exploration into how existing user insights could inform a new amalgamated digital insolvency service.'
+  }) }}
   {{ govukBreadcrumbs({
     items: [
       {
@@ -18,11 +22,12 @@
         href: "#"
       },
       {
-        text: "Section",
+        text: "Working, jobs and pensions",
         href: "#"
       },
       {
-        text: "Subsection"
+        text: "Redundancies, dismissals and disciplinaries",
+        href: "#"
       }
     ]
   }) }}
@@ -34,53 +39,39 @@
   <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-          <h1 class="govuk-heading-xl">
-              Claim for redundancy and other money you're owed by an employer
-          </h1>
+        <h1 class="govuk-heading-xl">
+            Manage insolvency and redundancy claims
+        </h1>
 
-          <p class="govuk-body">Use this service to claim money if your employer owes you a redundancy payment or other money like wages, holiday and commission.</p>
+        <p class="govuk-body">Employees and directors can use this service to:</p>
 
-          <p class="govuk-body">Your employer must be unable to pay you, for example because they’re insolvent.</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>claim money if your employer owes you a redundancy payment or other money like wages, holiday and commission</li>
+            <li>claim money if your employer owes you a payment relating to unserved notice period</li>
+            <li>amend a claim for payment</li>
+        </ul>
 
-          <div class="govuk-inset-text">
-              There’s a different service if you need to claim for loss of notice pay.
-          </div>
+        <p class="govuk-body">Directors claiming money must also use this service to provide additional information.</p>
 
-          <h2 class="govuk-heading-m">Eligibility</h2>
-          <p class="govuk-body">To be eligible you must:</p>
-          <ul class="govuk-list govuk-list--bullet">
-              <li>be a UK or EEA national (or foreign national with the right to work in the UK)</li>
-              <li>have been an employee at the business</li>
-          </ul>
-          <div class="govuk-inset-text">
-              If you’re not eligible (for example you’re a contractor) register as a creditor instead.
-          </div>
+        <p class="govuk-body">Non-employee's who are owed payments from employers, like contractors, are known as creditors. Creditors can use this service to:</p>
 
-          <h3 class="govuk-heading-s">If you're a company director</h3>
-          <p>You must have been an employee at the business as well as a director to be eligible for a payment.</p>
-          <p>You’ll need to provide evidence to support your claim. You’ll be asked for this by the Insolvency Service.</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>register as a creditor to find contact details of case handlers if you are owed under £1,000</li>
+            <li>submit a proof of debt if you are owed over £1,000</li>
+        </ul>
 
-          <h2 class="govuk-heading-m">Make a claim online</h2>
-          <p class="govuk-body">You'll need:</p>
-          <ul class="govuk-list govuk-list--bullet">
-              <li>a ‘CN’ (case reference) number</li>
-              <li>your National Insurance number</li>
-              <li>an email address</li>
-              <li>your bank or building society details (so you can get paid)</li>
-              <li>the date you became redundant (if you lost your job) - this can be found on your official letter of redundancy</li>
-              <li>your employment details, including dates you were employed and how much you were paid</li>
-              <li>details of any money you’re owed by your employer</li>
-              <li>the number of holiday days you’re entitled to and holiday days you’ve taken</li>
-              <li>copies of any letters sent to or received from your employer or an employment tribunal</li>
-              <li>details of any money you still owe your employer</li>
-          </ul>
+        <p class="govuk-body">Insolvency practitioners can use this service to:</p>
 
+        <ul class="govuk-list govuk-list--bullet">
+            <li>set up a redundancy case</li>
+            <li>provide employee and employer information relating to insolvency and redundancy claims</li>
+        </ul>
 
 
           {{
  govukButton({
         text: "Start now",
-        href: "/what-do-you-want-to-do",
+        href: "/who-are-you",
         isStartButton: true
       })
           }}
@@ -90,15 +81,11 @@
           </h2>
 
           <p>
-              You can also <a href="">register by post</a>.
+              This service is also <a href="#">available in Welsh (ar gael yn Gymraeg)</a>.
           </p>
 
           <p>
-              The online service is also <a href="#">available in Welsh (ar gael yn Gymraeg)</a>.
-          </p>
-
-          <p>
-              You can’t register for this service if you’re in the UK illegally.
+              You can’t use this service if you’re in the UK illegally.
           </p>
 
       </div>
@@ -107,15 +94,10 @@
 
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
+          Useful links
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="#">
-                Claim for loss of notice pay
-              </a>
-            </li>
             <li>
               <a href="#">
                 Your rights if your employer is insolvent

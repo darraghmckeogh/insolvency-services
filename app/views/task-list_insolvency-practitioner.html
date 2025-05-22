@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Manage insolvency claim for Alex Milton</h1>
+
+      <h2 class="govuk-heading-m">Your details</h2>
+
+      {{ govukTaskList({
+        idPrefix: "before-you-start",
+        items: [
+          {
+            title: {
+              text: "Who are you"
+            },
+            href: "/who-are-you",
+            status: {
+              text: "Completed"
+            }
+          },
+          {
+            title: {
+              text: "Personal information"
+            },
+            href: "/check-your-personal-answers",
+            status: {
+                text: "Completed"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Set up claim</h2>
+
+      {{ govukTaskList({
+        idPrefix: "prepare-application",
+        items: [
+          {
+            title: {
+              text: "Create case"
+            },
+            href: "#",
+            status: {
+              tag: {
+                text: "Incomplete",
+                classes: "govuk-tag--blue"
+              }
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-5">Provide information</h2>
+
+      {{ govukTaskList({
+        idPrefix: "prepare-application",
+        items: [
+          {
+            title: {
+              text: "Employer information"
+            },
+            status: {
+              text: "Connot start yet"
+            }
+          },
+          {
+            title: {
+              text: "Employees"
+            },
+            status: {
+              text: "Cannot start yet"
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue",
+          href: "/declare"
+        }) }}
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

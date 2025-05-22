@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is an initial exploration into how existing user insights could inform a new amalgamated digital insolvency service.'
+}) }}
+{{
+ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+})
+}}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/what-do-you-want-to-do" method="post">
+
+          {{
+            govukCheckboxes({
+            name: "who-are-you",
+            value: data['who-are-you'],
+            fieldset: {
+              legend: {
+                text: "What is your relationship to the insolvent company?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Employee",
+                text: "Employee"
+              },
+              {
+                value: "Director",
+                text: "Director"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "Non-employee creditor",
+                text: "Non-employee creditor",
+                hint: 
+                  {
+                    text: "Like a contractor"
+                  },
+                behaviour: "exclusive"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "Insolvency practitioner",
+                text: "Insolvency practitioner",
+                behaviour: "exclusive"
+              }
+            ]
+          })
+          }}
+
+          {{
+          govukButton({
+              text: "Continue"
+            })
+          }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

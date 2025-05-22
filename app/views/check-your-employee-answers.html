@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is an initial exploration into how existing user insights could inform a new amalgamated digital insolvency service.'
+}) }}
   {{ govukBackLink({
     text: "Back",
     href: "javascript:window.history.back()"
@@ -16,146 +22,14 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl">
-        Check your answers before sending your application
+        Check your employee information answers
       </h1>
 
       <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds-from-desktop" action>
 
-              <form class="form" action="/application-submitted" method="post">
+              <form class="form" action="/declare" method="post">
 
-                  <h1 class="govuk-heading-l">Check your answers before sending your application</h1>
-
-                  <h2 class="govuk-heading-m">Personal details</h2>
-
-                  {{
- govukSummaryList({
-        classes: "govuk-!-margin-bottom-9",
-        rows: [
-          {
-            key: {
-              text: "What do you want to do"
-            },
-            value: {
-              text: data['what-do-you-want-to-do']
-            },
-            actions: {
-              items: [
-                {
-                  href: "/what-do-you-want-to-do",
-                  text: "Change",
-                  visuallyHiddenText: "What do you want to do"
-                }
-              ]
-            }
-          },
-        {
-            key: {
-              text: "Full name"
-            },
-            value: {
-              text: data['full-name']
-            },
-            actions: {
-              items: [
-                {
-                  href: "/full-name",
-                  text: "Change",
-                  visuallyHiddenText: "Enter your Full name"
-                }
-              ]
-            }
-          },
-        {
-           key: {
-             text: "Date of birth"
-            },
-           value: {
-           text: data['date-of-birth-day'] + ' ' + data['date-of-birth-month'] + ' ' + data['date-of-birth-year']
-           },
-           actions: {
-            items: [
-               {
-                 href: "/date-of-birth",
-                 text: "Change",
-                 visuallyHiddenText: "Date of birth"
-                }
-            ]
-           }
-          },
-        {
-            key: {
-             text: "Gender"
-            },
-           value: {
-           text: data['gender']
-           },
-           actions: {
-            items: [
-               {
-                 href: "/gender",
-                 text: "Change",
-                 visuallyHiddenText: "Select your gender"
-                }
-            ]
-           }
-          },
-        {
-            key: {
-             text: "Postcode"
-            },
-           value: {
-           text: data['postcode']
-           },
-           actions: {
-            items: [
-               {
-                 href: "/postcode",
-                 text: "Change",
-                 visuallyHiddenText: "Search for your postcode"
-                }
-            ]
-           }
-          },
-        {
-            key: {
-             text: "Address"
-            },
-           value: {
-           text: data['address']
-           },
-           actions: {
-            items: [
-               {
-                 href: "/address",
-                 text: "Change",
-                 visuallyHiddenText: "Select your address"
-                }
-            ]
-           }
-          },
-            {
-            key: {
-             text: "Email address"
-            },
-           value: {
-           text: data['email-address']
-           },
-           actions: {
-            items: [
-               {
-                 href: "/email-address",
-                 text: "Change",
-                 visuallyHiddenText: "Enter your email address"
-                }
-            ]
-           }
-          }
-        ]
-      })
-                  }}
-
-                  <h2 class="govuk-heading-m">Application details</h2>
                   {{
  govukSummaryList({
         classes: "govuk-!-margin-bottom-9",
@@ -418,16 +292,10 @@
                   ]
                   })
                   }}
-                  <h2 class="govuk-heading-m">
-                      Now send your application
-                  </h2>
-                  <p>
-                      By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
-                  </p>
-                  <form action="/confirmation" method="post" novalidate>
+
                       {{
  govukButton({
-          text: "Accept and send"
+          text: "Continue"
         })
                       }}
 

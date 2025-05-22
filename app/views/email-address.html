@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block beforeContent %}
+  {{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is an initial exploration into how existing user insights could inform a new amalgamated digital insolvency service.'
+}) }}
   {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"

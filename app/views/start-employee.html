@@ -1,0 +1,131 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Section",
+        href: "#"
+      },
+      {
+        text: "Subsection"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-xl">
+              Claim for redundancy and other money you're owed by an employer
+          </h1>
+
+          <p class="govuk-body">Use this service to claim money if your employer owes you a redundancy payment or other money like wages, holiday and commission.</p>
+
+          <p class="govuk-body">Your employer must be unable to pay you, for example because they’re insolvent.</p>
+
+          <div class="govuk-inset-text">
+              There’s a different service if you need to claim for loss of notice pay.
+          </div>
+
+          <h2 class="govuk-heading-m">Eligibility</h2>
+          <p class="govuk-body">To be eligible you must:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>be a UK or EEA national (or foreign national with the right to work in the UK)</li>
+              <li>have been an employee at the business</li>
+          </ul>
+          <div class="govuk-inset-text">
+              If you’re not eligible (for example you’re a contractor) register as a creditor instead.
+          </div>
+
+          <h3 class="govuk-heading-s">If you're a company director</h3>
+          <p>You must have been an employee at the business as well as a director to be eligible for a payment.</p>
+          <p>You’ll need to provide evidence to support your claim. You’ll be asked for this by the Insolvency Service.</p>
+
+          <h2 class="govuk-heading-m">Make a claim online</h2>
+          <p class="govuk-body">You'll need:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>a ‘CN’ (case reference) number</li>
+              <li>your National Insurance number</li>
+              <li>an email address</li>
+              <li>your bank or building society details (so you can get paid)</li>
+              <li>the date you became redundant (if you lost your job) - this can be found on your official letter of redundancy</li>
+              <li>your employment details, including dates you were employed and how much you were paid</li>
+              <li>details of any money you’re owed by your employer</li>
+              <li>the number of holiday days you’re entitled to and holiday days you’ve taken</li>
+              <li>copies of any letters sent to or received from your employer or an employment tribunal</li>
+              <li>details of any money you still owe your employer</li>
+          </ul>
+
+
+
+          {{
+ govukButton({
+        text: "Start now",
+        href: "/what-do-you-want-to-do",
+        isStartButton: true
+      })
+          }}
+
+          <h2 class="govuk-heading-m">
+              Before you start
+          </h2>
+
+          <p>
+              You can also <a href="">register by post</a>.
+          </p>
+
+          <p>
+              The online service is also <a href="#">available in Welsh (ar gael yn Gymraeg)</a>.
+          </p>
+
+          <p>
+              You can’t register for this service if you’re in the UK illegally.
+          </p>
+
+      </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Claim for loss of notice pay
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Your rights if your employer is insolvent
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}
